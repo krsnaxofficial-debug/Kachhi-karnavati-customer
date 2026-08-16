@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#8b1e1e">
+<meta name="description" content="Kachhi Karnavati — authentic Kachhi and Gujarati food delivered to your doorstep.">
+<title>Kachhi Karnavati | Authentic Taste, Delivered</title>
+<style>
+:root{
+ --maroon:#8b1e1e;--maroon2:#6f1717;--gold:#ffc72c;--cream:#fff9f0;
+ --ink:#2d2118;--muted:#74675d;--card:#fff;--line:#eadfd2;--green:#207a43;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:var(--cream);color:var(--ink)}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+.topbar{background:#3b190f;color:#fff;text-align:center;padding:8px 12px;font-size:13px}
+header{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--line)}
+.nav{max-width:1180px;margin:auto;padding:13px 18px;display:flex;align-items:center;gap:18px}
+.logo{font-size:24px;font-weight:900;color:var(--maroon);white-space:nowrap}
+.logo small{display:block;font-size:10px;letter-spacing:1.8px;color:var(--muted);font-weight:700;margin-top:-2px}
+.search{flex:1;position:relative}
+.search input{width:100%;padding:12px 15px 12px 40px;border:1px solid var(--line);border-radius:12px;background:#fffaf4;outline:none}
+.search span{position:absolute;left:14px;top:10px;font-size:17px}
+.nav-actions{display:flex;align-items:center;gap:9px}
+.iconbtn{position:relative;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 12px}
+.count{position:absolute;right:-5px;top:-5px;background:var(--maroon);color:#fff;border-radius:999px;min-width:19px;height:19px;font-size:11px;display:grid;place-items:center;font-weight:800}
+.hero{max-width:1180px;margin:22px auto 0;padding:0 18px}
+.hero-card{min-height:390px;border-radius:26px;overflow:hidden;position:relative;background:
+linear-gradient(90deg,rgba(35,12,7,.88) 0%,rgba(35,12,7,.58) 47%,rgba(35,12,7,.14) 100%),
+url("https://www.mrkutchhi.com/assets/img/menu/Kutchhi%20Dabeli.png") center/cover no-repeat;
+display:flex;align-items:center}
+.hero-content{color:#fff;max-width:580px;padding:44px}
+.eyebrow{display:inline-flex;gap:7px;align-items:center;background:#ffffff1c;border:1px solid #ffffff35;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:800}
+.hero h1{font-size:52px;line-height:1.02;margin:16px 0 12px}
+.hero p{font-size:17px;line-height:1.55;color:#fcefe7;max-width:520px}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{border:0;border-radius:11px;padding:12px 17px;font-weight:800}
+.primary{background:var(--gold);color:#2b1a00}
+.secondary{background:#ffffff16;color:#fff;border:1px solid #ffffff55}
+.section{max-width:1180px;margin:0 auto;padding:46px 18px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:20px}
+.section-head h2{margin:0;font-size:29px}
+.section-head p{margin:5px 0 0;color:var(--muted);font-size:14px}
+.categories{display:flex;gap:10px;overflow:auto;padding-bottom:4px}
+.cat{white-space:nowrap;border:1px solid var(--line);background:#fff;padding:10px 14px;border-radius:999px;font-weight:800;color:#57483d}
+.cat.active{background:var(--maroon);color:#fff;border-color:var(--maroon)}
+.menu{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:17px;overflow:hidden;box-shadow:0 8px 26px #3b190e0b;display:flex;flex-direction:column}
+.food-wrap{height:185px;background:#eee;position:relative;overflow:hidden}
+.food-wrap img{width:100%;height:100%;object-fit:cover;object-position:center}
+.tag{position:absolute;top:10px;left:10px;background:#fff;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900}
+.card-body{padding:15px;display:flex;flex-direction:column;flex:1}
+.card h3{margin:0 0 5px;font-size:18px}
+.desc{color:var(--muted);font-size:13px;line-height:1.4;min-height:36px}
+.meta{display:flex;justify-content:space-between;align-items:center;margin:11px 0 12px}
+.price{font-size:18px;font-weight:900;color:var(--maroon)}
+.veg{font-size:11px;color:var(--green);font-weight:900}
+.add{width:100%;padding:10px;border:0;border-radius:9px;background:var(--maroon);color:#fff;font-weight:900}
+.offers{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.offer{border-radius:17px;padding:18px;background:#fff;border:1px solid var(--line)}
+.offer strong{display:block;color:var(--maroon);font-size:17px;margin-bottom:6px}
+.offer span{color:var(--muted);font-size:13px}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.feature{background:#fff;padding:17px;border:1px solid var(--line);border-radius:15px}
+.feature b{display:block;margin:7px 0 4px}
+.feature span{font-size:13px;color:var(--muted)}
+.trackbar{background:#2b1710;color:#fff;border-radius:18px;padding:24px;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center}
+.trackbar h3{margin:0 0 6px}.trackbar p{margin:0;color:#dac6ba;font-size:13px}
+.trackbar input{border:0;padding:13px;border-radius:10px;min-width:250px}
+.trackbar button{border:0;background:var(--gold);padding:13px;border-radius:10px;font-weight:900}
+footer{background:#2a170f;color:#e7d9cf;padding:36px 18px;margin-top:30px}
+.footer-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}
+.footer-inner h3{color:#fff}.footer-inner p{font-size:13px;line-height:1.6}
+.drawer-back{display:none;position:fixed;inset:0;background:#0007;z-index:40}
+.drawer{position:absolute;right:0;top:0;height:100%;width:min(440px,100%);background:#fff;display:flex;flex-direction:column}
+.drawer-head{padding:17px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.drawer-body{padding:16px;overflow:auto;flex:1}
+.cart-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:13px 0;border-bottom:1px solid var(--line)}
+.cart-title{font-weight:800}.cart-sub{color:var(--muted);font-size:12px;margin-top:3px}
+.stepper{display:flex;align-items:center;gap:8px}.stepper button{border:0;background:#eee;border-radius:7px;padding:4px 8px}
+.cart-foot{padding:16px;border-top:1px solid var(--line)}
+.total-row{display:flex;justify-content:space-between;font-size:20px;font-weight:900;margin-bottom:11px}
+.checkout{width:100%;background:var(--maroon);color:#fff;border:0;padding:13px;border-radius:10px;font-weight:900}
+.modal-back{display:none;position:fixed;inset:0;background:#0008;z-index:60;padding:20px;overflow:auto}
+.modal{background:#fff;max-width:600px;margin:40px auto;border-radius:18px;overflow:hidden}
+.modal-head{padding:17px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}
+.modal-body{padding:20px}.close{border:0;background:#eee;border-radius:8px;padding:8px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{width:100%;padding:12px;border:1px solid #d8cbbf;border-radius:9px;background:#fff}.full{grid-column:1/-1}
+.pay-opt{border:1px solid var(--line);border-radius:10px;padding:11px;margin:7px 0}
+.order-success{display:none;padding:20px;background:#eff9f1;border-left:5px solid #2e7d32;border-radius:10px}
+@media(max-width:1000px){.menu{grid-template-columns:repeat(3,1fr)}.features{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.nav{flex-wrap:wrap}.search{order:3;flex-basis:100%}.hero-card{min-height:440px}.hero-content{padding:32px}.hero h1{font-size:40px}.menu{grid-template-columns:repeat(2,1fr)}.offers{grid-template-columns:1fr}.trackbar{grid-template-columns:1fr}.trackbar input{min-width:0;width:100%}.footer-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.logo{font-size:21px}.nav{padding:11px 13px}.hero{padding:0 12px}.hero-card{border-radius:20px}.hero-content{padding:25px}.hero h1{font-size:36px}.section{padding:36px 13px}.menu{grid-template-columns:1fr}.features{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.footer-inner{grid-template-columns:1fr}}
+
+/* Account / loyalty additions */
+.accountbar{display:flex;align-items:center;gap:8px;margin-left:auto}
+.userbtn{border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 12px;font-weight:800}
+.favbtn{position:absolute;right:10px;top:10px;border:0;background:#fff;border-radius:999px;width:36px;height:36px;font-size:19px;box-shadow:0 4px 14px #0002}
+.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.profile-card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px}
+.points-big{font-size:34px;font-weight:950;color:var(--maroon)}
+.coupon-box{display:grid;grid-template-columns:1fr auto;gap:8px;margin:12px 0}
+.coupon-msg{font-size:13px;margin:7px 0}
+.auth-tabs{display:flex;gap:8px;margin-bottom:14px}
+.auth-tab{flex:1;border:1px solid var(--line);background:#fff;padding:10px;border-radius:9px;font-weight:800}
+.auth-tab.active{background:var(--maroon);color:#fff}
+.small-link{border:0;background:none;color:var(--maroon);font-weight:800;padding:4px 0}
+.fav-empty{color:var(--muted);padding:10px 0}
+@media(max-width:600px){.profile-grid{grid-template-columns:1fr}.coupon-box{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<div class="topbar">🚚 Free delivery on qualifying orders • Freshly prepared • Kachhi taste</div>
+<header>
+  <div class="nav">
+    <a class="logo" href="#"><span>🍽️ Kachhi Karnavati</span><small>AUTHENTIC TASTE • DELIVERED</small></a>
+    <div class="search"><span>⌕</span><input id="search" placeholder="Search dabeli, thali, fafda..." aria-label="Search menu"></div>
+    <div class="nav-actions">
+      <button class="iconbtn" onclick="openTrack()" title="Track order">📍</button>
+      <button class="userbtn" id="accountBtn" onclick="openAccount()">👤 Login</button>
+      <button class="iconbtn" onclick="openCart()" title="Cart">🛒<span class="count" id="cartCount">0</span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-card">
+    <div class="hero-content">
+      <div class="eyebrow">⭐ Loved for authentic Kachhi flavour</div>
+      <h1>From our kitchen to your doorstep.</h1>
+      <p>Freshly prepared dabeli, Gujarati favourites and comfort food — packed with care and made for sharing.</p>
+      <div class="cta"><button class="btn primary" onclick="document.getElementById('menu').scrollIntoView()">Explore Menu</button><button class="btn secondary" onclick="openTrack()">Track Order</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="menu">
+  <div class="section-head">
+    <div><h2>Our Menu</h2><p>Choose your favourites. Add quantity and place your order in a few taps.</p></div>
+  </div>
+  <div class="categories" id="categories"></div>
+  <div class="menu" id="menuGrid" style="margin-top:18px"></div>
+</section>
+
+<section class="section">
+  <div class="section-head"><div><h2>Offers for you</h2><p>Simple offers to make your next order better.</p></div></div>
+  <div class="offers">
+    <div class="offer"><strong>WELCOME10</strong><span>Use this demo coupon for 10% off on eligible orders.</span></div>
+    <div class="offer"><strong>FAMILY FAVOURITE</strong><span>Mix your favourites in one cart and save on larger orders.</span></div>
+    <div class="offer"><strong>FRESH EVERY TIME</strong><span>Orders are prepared fresh after confirmation.</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="features">
+    <div class="feature">🧑‍🍳<b>Freshly prepared</b><span>Food is prepared for the order.</span></div>
+    <div class="feature">📦<b>Careful packing</b><span>Secure packing for a smooth delivery.</span></div>
+    <div class="feature">📍<b>Order tracking</b><span>Track your order with its Order ID.</span></div>
+    <div class="feature">💳<b>Easy payment</b><span>COD and online payment can be supported.</span></div>
+  </div>
+</section>
+
+
+<section class="section" id="accountSection">
+  <div class="section-head"><div><h2>Your Rewards</h2><p>Login to collect points, save favourites and unlock member offers.</p></div></div>
+  <div id="rewardsContent" class="profile-grid"></div>
+</section>
+
+<section class="section">
+  <div class="trackbar">
+    <div><h3>Already ordered?</h3><p>Enter your Order ID to check the latest status.</p></div>
+    <div style="display:flex;gap:8px"><input id="quickTrack" placeholder="KK123456"><button onclick="quickTrack()">Track</button></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div><h3>🍽️ Kachhi Karnavati</h3><p>Authentic taste with a clean, simple ordering experience.</p></div>
+    <div><h3>Customer Help</h3><p>Track Order<br>Cart & Checkout<br>Payment Support</p></div>
+    <div><h3>Note</h3><p>Menu, prices, delivery areas and payment options can be updated from the connected backend.</p></div>
+  </div>
+</footer>
+
+<div class="drawer-back" id="cartBack" onclick="closeCart(event)">
+  <aside class="drawer" onclick="event.stopPropagation()">
+    <div class="drawer-head"><b>Your Cart</b><button class="close" onclick="closeCart()">✕</button></div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="cart-foot"><div class="total-row"><span>Total</span><span>₹<span id="cartTotal">0</span></span></div><button class="checkout" onclick="openCheckout()">Continue to Checkout</button></div>
+  </aside>
+</div>
+
+
+<div class="modal-back" id="accountBack">
+  <div class="modal">
+    <div class="modal-head"><b id="accountTitle">Customer Account</b><button class="close" onclick="closeAccount()">✕</button></div>
+    <div class="modal-body">
+      <div id="authPanel">
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="loginTab" onclick="showAuth('login')">Login</button>
+          <button class="auth-tab" id="signupTab" onclick="showAuth('signup')">Create Account</button>
+        </div>
+        <div id="loginFormBox">
+          <input class="field" id="authEmail" type="email" placeholder="Email" required>
+          <input class="field" id="authPassword" type="password" placeholder="Password" required>
+          <button class="checkout" onclick="loginCustomer()">Login</button>
+          <p id="authMsg" class="coupon-msg"></p>
+        </div>
+        <div id="signupFormBox" style="display:none">
+          <input class="field" id="signupName" placeholder="Full name">
+          <input class="field" id="signupPhone" placeholder="Mobile number" inputmode="numeric">
+          <input class="field" id="signupEmail" type="email" placeholder="Email">
+          <input class="field" id="signupPassword" type="password" placeholder="Password (6+ characters)">
+          <button class="checkout" onclick="signupCustomer()">Create Account</button>
+          <p id="signupMsg" class="coupon-msg"></p>
+        </div>
+      </div>
+      <div id="profilePanel" style="display:none">
+        <div id="profileSummary"></div>
+        <h4>❤️ Favourites</h4>
+        <div id="favList"></div>
+        <h4>🧾 Recent Orders</h4>
+        <div id="myOrders"></div>
+        <button class="btn" style="background:#fbeaea;color:#8b1e1e;margin-top:12px" onclick="logoutCustomer()">Logout</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-back" id="checkoutBack">
+  <div class="modal">
+    <div class="modal-head"><b>Checkout</b><button class="close" onclick="closeCheckout()">✕</button></div>
+    <div class="modal-body">
+      <form id="checkoutForm">
+        <div class="form-grid">
+          <input class="field" id="custName" placeholder="Full name" required>
+          <input class="field" id="custPhone" placeholder="Mobile number" inputmode="numeric" required>
+          <input class="field full" id="custAddress" placeholder="Complete delivery address" required>
+          <input class="field" id="custArea" placeholder="Area / landmark" required>
+          <input class="field" id="custPincode" placeholder="Pincode" inputmode="numeric" required>
+        </div>
+        <h4 style="margin:18px 0 8px">Coupon</h4>
+        <div class="coupon-box"><input class="field" id="couponCode" placeholder="Enter coupon code"><button class="btn" style="background:var(--gold)" type="button" onclick="applyCoupon()">Apply</button></div>
+        <div class="coupon-msg" id="couponMsg"></div>
+        <div id="checkoutSummary" style="background:#fffaf4;border:1px solid var(--line);padding:12px;border-radius:10px;margin:10px 0 14px"></div>
+        <h4 style="margin:18px 0 8px">Payment</h4>
+        <label class="pay-opt"><input type="radio" name="payment" value="COD" checked> Cash on Delivery</label>
+        <label class="pay-opt"><input type="radio" name="payment" value="ONLINE"> UPI / Online Payment</label>
+        <p style="font-size:12px;color:#74675d">Online payment is confirmed only after the payment gateway verifies the transaction. This preview does not fake a successful payment.</p>
+        <button class="checkout" type="submit">Place Order</button>
+      </form>
+      <div class="order-success" id="success"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-back" id="trackBack">
+  <div class="modal">
+    <div class="modal-head"><b>Track Order</b><button class="close" onclick="closeTrack()">✕</button></div>
+    <div class="modal-body">
+      <input class="field" id="trackId" placeholder="Enter Order ID">
+      <button class="checkout" style="margin-top:10px" onclick="trackOrder()">Check Status</button>
+      <div id="trackOutput"></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const SUPABASE_URL="https://wguolaszvmwshbtukytt.supabase.co";
+const SUPABASE_KEY="sb_publishable__HN9KGEWtIYxMh3Ofwv43w_7olwyxrR";
+const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+
+let products=[],category="All",search="",cart=[];
+let currentUser=null, profile=null, favoriteIds=new Set(), couponState=null;
+
+function safe(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]))}
+function money(n){return Number(n||0).toLocaleString("en-IN",{maximumFractionDigits:2})}
+
+function renderCats(){
+  const cats=["All",...new Set(products.map(p=>p.cat).filter(Boolean))];
+  document.getElementById("categories").innerHTML=cats.map(c=>`<button class="cat ${category===c?"active":""}" onclick='setCat(${JSON.stringify(c)})'>${safe(c)}</button>`).join("");
+}
+function setCat(c){category=c;render()}
+
+function render(){
+  renderCats();
+  const list=products.filter(p=>(category==="All"||p.cat===category)&&((p.name+" "+p.desc+" "+p.cat).toLowerCase().includes(search.toLowerCase())));
+  document.getElementById("menuGrid").innerHTML=list.length?list.map(p=>`
+  <article class="card">
+    <div class="food-wrap"><img loading="lazy" src="${safe(p.img)}" alt="${safe(p.name)}" onerror="this.style.opacity='.2'">
+      <span class="tag">${safe(p.tag||"Fresh")}</span>
+      <button class="favbtn" onclick='toggleFav(${JSON.stringify(p.id)},event)' title="Favourite">${favoriteIds.has(String(p.id))?"❤️":"♡"}</button>
+    </div>
+    <div class="card-body"><h3>${safe(p.name)}</h3><div class="desc">${safe(p.desc||"Freshly prepared.")}</div>
+      <div class="meta"><span class="price">₹${money(p.price)}</span><span class="veg">● VEG</span></div>
+      <button class="add" onclick='add(${JSON.stringify(p.id)})'>Add to Cart</button>
+    </div>
+  </article>`).join(""):'<p style="color:#74675d">No matching dishes found. Try another search.</p>';
+  renderCart();
+}
+
+async function loadProducts(){
+  const {data,error}=await sb.from("products").select("id,name,description,price,category,image_url,is_available,sort_order").eq("is_available",true).order("sort_order",{ascending:true});
+  if(error||!data?.length){
+    products=[{id:"demo1",name:"Kachhi Dabeli",cat:"Dabeli",price:40,tag:"Bestseller",desc:"Sweet, spicy and tangy with sev, peanuts and chutneys.",img:"https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=900&q=85"}];
+  }else{
+    products=data.map(x=>({id:x.id,name:x.name,cat:x.category,price:Number(x.price),desc:x.description,img:x.image_url||"https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=900&q=85",tag:"Fresh"}));
+  }
+  render();
+}
+
+async function loadSession(){
+  const {data}=await sb.auth.getSession();
+  currentUser=data.session?.user||null;
+  if(currentUser) await loadCustomerData();
+  else {favoriteIds=new Set(); profile=null}
+  updateAccountButton(); renderRewards();
+}
+async function loadCustomerData(){
+  const {data:p}=await sb.from("profiles").select("*").eq("id",currentUser.id).maybeSingle();
+  profile=p||{id:currentUser.id,full_name:currentUser.user_metadata?.full_name||"",phone:currentUser.user_metadata?.phone||"",points:0};
+  const {data:f}=await sb.from("favorites").select("product_id").eq("user_id",currentUser.id);
+  favoriteIds=new Set((f||[]).map(x=>String(x.product_id)));
+  render();
+  renderRewards();
+}
+function updateAccountButton(){
+  const b=document.getElementById("accountBtn");
+  if(!b)return;
+  b.textContent=currentUser?`👤 ${((profile?.full_name||currentUser.email||"Account").split(" ")[0]).slice(0,12)}`:"👤 Login";
+}
+function openAccount(){document.getElementById("accountBack").style.display="block";renderAccount()}
+function closeAccount(){document.getElementById("accountBack").style.display="none"}
+function showAuth(mode){
+  const login=mode==="login";
+  document.getElementById("loginFormBox").style.display=login?"block":"none";
+  document.getElementById("signupFormBox").style.display=login?"none":"block";
+  document.getElementById("loginTab").classList.toggle("active",login);
+  document.getElementById("signupTab").classList.toggle("active",!login);
+}
+function renderAccount(){
+  document.getElementById("authPanel").style.display=currentUser?"none":"block";
+  document.getElementById("profilePanel").style.display=currentUser?"block":"none";
+  if(!currentUser)return;
+  const pts=Number(profile?.points||0);
+  document.getElementById("profileSummary").innerHTML=`<div class="profile-grid">
+    <div class="profile-card"><div class="muted">Welcome back</div><h3>${safe(profile?.full_name||currentUser.email)}</h3><div class="muted">${safe(currentUser.email)}</div><div class="points-big">${pts} pts</div><div class="muted">Earn 1 point for every ₹10 on delivered orders.</div></div>
+    <div class="profile-card"><b>Member rewards</b><p>Use points on future orders. Your points are added automatically after delivery.</p><p><b>${favoriteIds.size}</b> saved favourites</p></div>
+  </div>`;
+  const favs=products.filter(p=>favoriteIds.has(String(p.id)));
+  document.getElementById("favList").innerHTML=favs.length?favs.map(p=>`<div class="cart-row"><div><b>${safe(p.name)}</b><div class="cart-sub">₹${money(p.price)}</div></div><button class="btn" style="background:#f7eee8" onclick='add(${JSON.stringify(p.id)})'>Add</button></div>`).join(""):'<div class="fav-empty">No favourites yet. Tap ♡ on any dish.</div>';
+  loadMyOrders();
+}
+async function loadMyOrders(){
+  if(!currentUser)return;
+  const {data}=await sb.from("orders").select("order_id,status,total,discount,coupon_code,created_at").eq("user_id",currentUser.id).order("created_at",{ascending:false}).limit(8);
+  document.getElementById("myOrders").innerHTML=data?.length?data.map(o=>`<div class="cart-row"><div><b>${safe(o.order_id)}</b><div class="cart-sub">${safe(o.status)} • ${new Date(o.created_at).toLocaleDateString()}</div></div><b>₹${money(o.total)}</b></div>`).join(""):'<div class="fav-empty">No orders yet.</div>';
+}
+async function loginCustomer(){
+  const email=document.getElementById("authEmail").value.trim(),password=document.getElementById("authPassword").value;
+  const msg=document.getElementById("authMsg");
+  const {data,error}=await sb.auth.signInWithPassword({email,password});
+  if(error){msg.textContent=error.message;msg.style.color="#a33";return}
+  currentUser=data.user; await loadCustomerData(); renderAccount(); closeAccount(); toast("Welcome back ✓");
+}
+async function signupCustomer(){
+  const name=document.getElementById("signupName").value.trim(),phone=document.getElementById("signupPhone").value.trim(),email=document.getElementById("signupEmail").value.trim(),password=document.getElementById("signupPassword").value;
+  const msg=document.getElementById("signupMsg");
+  const {data,error}=await sb.auth.signUp({email,password,options:{data:{full_name:name,phone}}});
+  if(error){msg.textContent=error.message;msg.style.color="#a33";return}
+  if(data.user){
+    await sb.from("profiles").upsert({id:data.user.id,full_name:name,phone,points:0});
+    msg.textContent=data.session?"Account created!":"Account created. Check your email to confirm, then login.";
+    msg.style.color="#176b3a";
+  }
+}
+async function logoutCustomer(){await sb.auth.signOut();currentUser=null;profile=null;favoriteIds=new Set();updateAccountButton();renderRewards();render();renderAccount();closeAccount();toast("Logged out");}
+async function toggleFav(id,e){
+  if(e)e.stopPropagation();
+  if(!currentUser){openAccount();showAuth("login");document.getElementById("authMsg").textContent="Login to save favourites.";return}
+  const sid=String(id);
+  if(favoriteIds.has(sid)){
+    const {error}=await sb.from("favorites").delete().eq("user_id",currentUser.id).eq("product_id",id);
+    if(error){toast("Favourite error: "+error.message);return}
+    favoriteIds.delete(sid);toast("Removed from favourites");
+  }else{
+    const {error}=await sb.from("favorites").insert({user_id:currentUser.id,product_id:id});
+    if(error){toast("Favourite error: "+error.message);return}
+    favoriteIds.add(sid);toast("Saved to favourites ❤️");
+  }
+  render();
+}
+function renderRewards(){
+  const el=document.getElementById("rewardsContent"); if(!el)return;
+  if(!currentUser){el.innerHTML=`<div class="profile-card"><b>🎁 Member points</b><p>Login and earn points on delivered orders.</p><button class="btn primary" onclick="openAccount()">Login / Create Account</button></div><div class="profile-card"><b>❤️ Favourites</b><p>Save dishes you love for one-tap ordering.</p></div>`;return}
+  el.innerHTML=`<div class="profile-card"><div class="muted">Your points</div><div class="points-big">${Number(profile?.points||0)} pts</div><div class="muted">1 point = ₹1 when you choose to redeem points at checkout.</div></div><div class="profile-card"><b>Member benefits</b><p>Save favourites, use owner-created coupons and earn points automatically after delivered orders.</p><button class="btn" style="background:#f7eee8" onclick="openAccount()">Open Profile</button></div>`;
+}
+function add(id){const p=products.find(x=>String(x.id)===String(id)),x=cart.find(x=>String(x.id)===String(id));if(!p)return;x?x.qty++:cart.push({...p,qty:1});renderCart();openCart()}
+function change(id,d){const x=cart.find(x=>String(x.id)===String(id));if(!x)return;x.qty+=d;if(x.qty<=0)cart=cart.filter(a=>String(a.id)!==String(id));renderCart()}
+function renderCart(){
+  let subtotal=0,count=0;
+  document.getElementById("cartItems").innerHTML=cart.length?cart.map(x=>{subtotal+=x.price*x.qty;count+=x.qty;return `<div class="cart-row"><div><div class="cart-title">${safe(x.name)}</div><div class="cart-sub">₹${money(x.price)} each</div></div><div class="stepper"><button onclick='change(${JSON.stringify(x.id)},-1)'>−</button><b>${x.qty}</b><button onclick='change(${JSON.stringify(x.id)},1)'>+</button></div></div>`}).join(""):'<p style="color:#74675d">Your cart is empty.</p>';
+  document.getElementById("cartTotal").textContent=money(subtotal);
+  document.getElementById("cartCount").textContent=count;
+}
+function openCart(){document.getElementById("cartBack").style.display="block";renderCart()}
+function closeCart(e){if(e&&e.target!==document.getElementById("cartBack"))return;document.getElementById("cartBack").style.display="none"}
+function openCheckout(){if(!cart.length){alert("Please add an item first.");return}if(!currentUser){openAccount();showAuth("login");document.getElementById("authMsg").textContent="Please login before checkout.";return}document.getElementById("checkoutBack").style.display="block";couponState=null;document.getElementById("couponMsg").textContent="";document.getElementById("couponCode").value="";renderCheckoutSummary()}
+function closeCheckout(){document.getElementById("checkoutBack").style.display="none"}
+function cartSubtotal(){return cart.reduce((s,x)=>s+x.price*x.qty,0)}
+function renderCheckoutSummary(){
+  const sub=cartSubtotal(),disc=Number(couponState?.discount||0),pts=0,total=Math.max(0,sub-disc-pts);
+  document.getElementById("checkoutSummary").innerHTML=`<div style="display:flex;justify-content:space-between"><span>Subtotal</span><b>₹${money(sub)}</b></div><div style="display:flex;justify-content:space-between"><span>Coupon</span><b>- ₹${money(disc)}</b></div><div style="display:flex;justify-content:space-between;font-size:18px;margin-top:7px"><span>Total</span><b>₹${money(total)}</b></div>`;
+}
+async function applyCoupon(){
+  if(!currentUser){toast("Login first");return}
+  const code=document.getElementById("couponCode").value.trim().toUpperCase();
+  if(!code){return}
+  const {data,error}=await sb.rpc("validate_coupon",{p_code:code,p_subtotal:cartSubtotal()});
+  if(error||!data?.valid){couponState=null;document.getElementById("couponMsg").textContent=data?.message||error?.message||"Coupon is not valid.";document.getElementById("couponMsg").style.color="#a33";renderCheckoutSummary();return}
+  couponState={code,discount:Number(data.discount||0)};
+  document.getElementById("couponMsg").textContent=`✓ ${code} applied — you save ₹${money(couponState.discount)}`;
+  document.getElementById("couponMsg").style.color="#176b3a";renderCheckoutSummary();
+}
+function showSuccess(id,payment,status,discount){
+  document.getElementById("success").style.display="block";
+  document.getElementById("success").innerHTML=`<b>✅ Order placed</b><br>Order ID: <b>${safe(id)}</b><br>Total discount: <b>₹${money(discount)}</b><br>Payment: <b>${safe(payment)}</b><br>Status: <b>${safe(status)}</b><p style="margin-bottom:0;font-size:13px;color:#526052">Save your Order ID for tracking.</p>`;
+}
+document.getElementById("search").addEventListener("input",e=>{search=e.target.value;render()});
+document.getElementById("checkoutForm").addEventListener("submit",async e=>{
+  e.preventDefault(); if(!cart.length||!currentUser)return;
+  const payment=document.querySelector('input[name="payment"]:checked').value;
+  const orderId="KK"+Date.now().toString().slice(-8)+Math.floor(10+Math.random()*90);
+  const items=cart.map(x=>({product_id:x.id,name:x.name,price:x.price,qty:x.qty}));
+  const sub=cartSubtotal();
+  const code=couponState?.code||null;
+  const {data,error}=await sb.rpc("create_order_with_coupon",{p_order_id:orderId,p_user_id:currentUser.id,p_customer_name:document.getElementById("custName").value.trim(),p_phone:document.getElementById("custPhone").value.trim(),p_address:document.getElementById("custAddress").value.trim()+" • "+document.getElementById("custArea").value.trim()+" • "+document.getElementById("custPincode").value.trim(),p_payment_method:payment,p_items:items,p_subtotal:sub,p_coupon_code:code});
+  if(error||!data?.success){alert(error?.message||data?.message||"Order could not be placed.");return}
+  localStorage.setItem("kk_current_order",orderId);
+  showSuccess(orderId,payment,"New",Number(data.discount||0));
+  cart=[];couponState=null;renderCart();renderCheckoutSummary();
+  await loadCustomerData();
+});
+async function trackOrder(){
+  const id=document.getElementById("trackId").value.trim();if(!id)return;
+  const {data,error}=await sb.from("orders").select("order_id,status,payment_status,total,discount,coupon_code,created_at").eq("order_id",id).maybeSingle();
+  if(error||!data){document.getElementById("trackOutput").innerHTML='<p style="color:#a33;margin-top:12px">Order not found. Please check the Order ID.</p>';return}
+  document.getElementById("trackOutput").innerHTML=`<div class="track-card"><b>${safe(data.order_id)}</b><br>Status: <b style="color:#8b1e1e">${safe(data.status)}</b><br>Payment: ${safe(data.payment_status)}<br>Discount: ₹${money(data.discount)}<br>Total: ₹${money(data.total)}</div>`;
+}
+function quickTrack(){document.getElementById("trackId").value=document.getElementById("quickTrack").value;openTrack();trackOrder()}
+function openTrack(){document.getElementById("trackBack").style.display="block";document.getElementById("trackId").focus()}
+function closeTrack(){document.getElementById("trackBack").style.display="none"}
+function toast(msg){let t=document.getElementById("siteToast");if(!t){t=document.createElement("div");t.id="siteToast";t.style.cssText="position:fixed;right:18px;bottom:18px;background:#241713;color:#fff;border-radius:11px;padding:13px 16px;z-index:200";document.body.appendChild(t)}t.textContent=msg;t.style.display="block";clearTimeout(t._x);t._x=setTimeout(()=>t.style.display="none",2500)}
+
+sb.auth.onAuthStateChange(async (_event,session)=>{currentUser=session?.user||null;if(currentUser)await loadCustomerData();else{profile=null;favoriteIds=new Set();renderRewards();render()}updateAccountButton();if(document.getElementById("accountBack").style.display==="block")renderAccount()});
+loadProducts();loadSession();
+</script>
+
+</body>
+</html>
